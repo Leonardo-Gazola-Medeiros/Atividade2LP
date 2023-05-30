@@ -10,6 +10,7 @@ import java.io.IOException;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("mainMenu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 750, 550);
         stage.setTitle("Calculador de IMC");
