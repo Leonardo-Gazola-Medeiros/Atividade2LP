@@ -1,4 +1,4 @@
-package leo.atividade2;
+package leo.atividade2.controllers;
 
 public class mainMenuController {
 

@@ -5,4 +5,6 @@ module leo.atividade2 {
                             
     opens leo.atividade2 to javafx.fxml;
     exports leo.atividade2;
+    exports leo.atividade2.controllers;
+    opens leo.atividade2.controllers to javafx.fxml;
 }
