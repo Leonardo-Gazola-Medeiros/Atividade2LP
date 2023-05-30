@@ -26,7 +26,7 @@
                         <Font name="Microsoft Uighur" size="23.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="322.0" layoutY="95.0" prefHeight="25.0" prefWidth="174.0" />
+                  <TextField fx:id="campoIdade" layoutX="322.0" layoutY="95.0" prefHeight="25.0" prefWidth="174.0" />
                   <Label layoutX="322.0" layoutY="70.0" prefHeight="25.0" prefWidth="85.0" text="Idade">
                      <font>
                         <Font name="Microsoft Uighur" size="23.0" />
@@ -52,12 +52,12 @@
                         <Font name="Microsoft Uighur" size="23.0" />
                      </font>
                   </Label>
-                  <DatePicker layoutX="320.0" layoutY="179.0" />
-                  <TextField layoutX="69.0" layoutY="95.0" prefHeight="25.0" prefWidth="174.0" />
-                  <TextField layoutX="69.0" layoutY="179.0" prefHeight="25.0" prefWidth="174.0" />
-                  <TextField layoutX="69.0" layoutY="268.0" prefHeight="25.0" prefWidth="174.0" />
-                  <TextField layoutX="320.0" layoutY="268.0" prefHeight="25.0" prefWidth="174.0" />
-                  <Button layoutX="411.0" layoutY="334.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="85.0" text="Enviar" />
+                  <DatePicker fx:id="campoNascimento" layoutX="320.0" layoutY="179.0" />
+                  <TextField fx:id="campoNome" layoutX="69.0" layoutY="95.0" prefHeight="25.0" prefWidth="174.0" />
+                  <TextField fx:id="campoCPF" layoutX="69.0" layoutY="179.0" prefHeight="25.0" prefWidth="174.0" />
+                  <TextField fx:id="campoAltura" layoutX="69.0" layoutY="268.0" prefHeight="25.0" prefWidth="174.0" />
+                  <TextField fx:id="campoPeso" layoutX="320.0" layoutY="268.0" prefHeight="25.0" prefWidth="174.0" />
+                  <Button fx:id="botaoEnviarCadastro" layoutX="411.0" layoutY="334.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="85.0" text="Enviar" />
                </children>
             </AnchorPane>
             <AnchorPane maxWidth="170.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="170.0" style="-fx-background-color: #15be99;">
@@ -103,7 +103,7 @@
                                              <children>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                    <children>
-                                                      <Button alignment="CENTER" layoutY="-7.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="170.0" style="-fx-background-color: #15be99;" text="Cadastro" wrapText="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0">
+                                                      <Button fx:id="botaoCadastro" alignment="CENTER" layoutY="-7.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="170.0" style="-fx-background-color: #15be99;" text="Cadastro" wrapText="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0">
                                                          <font>
                                                             <Font name="Corbel Italic" size="20.0" />
                                                          </font>
@@ -112,7 +112,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                                    <children>
-                                                      <Button alignment="CENTER" layoutX="6.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="170.0" style="-fx-background-color: #15be99;" text="Registros" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <Button fx:id="botaoRegistros" alignment="CENTER" layoutX="6.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="170.0" style="-fx-background-color: #15be99;" text="Registros" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <font>
                                                             <Font name="Corbel Italic" size="20.0" />
                                                          </font>
