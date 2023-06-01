@@ -1,164 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane cacheShape="false" centerShape="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" scaleShape="false" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="leo.atividade2.controllers.mainMenuController">
+<AnchorPane cacheShape="false" centerShape="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="leo.atividade2.controllers.MainMenuController">
    <children>
-      <GridPane alignment="CENTER" layoutX="26.0" layoutY="99.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" snapToPixel="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="NEVER" maxWidth="180.0" minWidth="159.0" prefWidth="172.0" />
-          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="526.0" prefWidth="584.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="482.0" prefHeight="482.0" vgrow="ALWAYS" />
-        </rowConstraints>
-         <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+      <BorderPane fx:id="mainPane" layoutX="275.0" layoutY="175.0" prefHeight="550.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="550.0" prefWidth="128.0" style="-fx-background-color: #15be99;" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </AnchorPane>
-                  <AnchorPane snapToPixel="false" style="-fx-background-color: #717f7c;">
-                     <effect>
-                        <DropShadow />
-                     </effect>
+                  <Pane prefHeight="117.0" prefWidth="128.0" style="-fx-background-color: 194D33;">
                      <children>
-                        <Label layoutX="79.0" layoutY="126.0" prefHeight="25.0" prefWidth="85.0" text="Nome">
+                        <Text layoutX="10.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calcule seu IMC" wrappingWidth="128.10986328125">
                            <font>
-                              <Font name="Microsoft Uighur" size="23.0" />
+                              <Font name="High Tower Text" size="30.0" />
                            </font>
-                        </Label>
-                        <TextField layoutX="330.0" layoutY="151.0" prefHeight="25.0" prefWidth="174.0" />
-                        <Label layoutX="330.0" layoutY="126.0" prefHeight="25.0" prefWidth="85.0" text="Idade">
-                           <font>
-                              <Font name="Microsoft Uighur" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="79.0" layoutY="210.0" prefHeight="25.0" prefWidth="85.0" text="CPF">
-                           <font>
-                              <Font name="Microsoft Uighur" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="330.0" layoutY="210.0" prefHeight="27.0" prefWidth="149.0" text="Data de Nascimento">
-                           <font>
-                              <Font name="Microsoft Uighur" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="79.0" layoutY="297.0" prefHeight="25.0" prefWidth="85.0" text="Altura">
-                           <font>
-                              <Font name="Microsoft Uighur" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="328.0" layoutY="297.0" prefHeight="25.0" prefWidth="85.0" text="Peso">
-                           <font>
-                              <Font name="Microsoft Uighur" size="23.0" />
-                           </font>
-                        </Label>
-                        <DatePicker layoutX="328.0" layoutY="235.0" />
-                        <TextField layoutX="77.0" layoutY="151.0" prefHeight="25.0" prefWidth="174.0" />
-                        <TextField layoutX="77.0" layoutY="235.0" prefHeight="25.0" prefWidth="174.0" />
-                        <TextField layoutX="77.0" layoutY="324.0" prefHeight="25.0" prefWidth="174.0" />
-                        <TextField layoutX="328.0" layoutY="324.0" prefHeight="25.0" prefWidth="174.0" />
-                        <Button layoutX="419.0" layoutY="390.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="85.0" text="Enviar" />
-                        <Pane prefHeight="76.0" prefWidth="581.0" style="-fx-background-color: #52ddbe;">
-                           <children>
-                              <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="17.0" prefHeight="43.0" prefWidth="142.0" text="Cadastro" textAlignment="CENTER" wrapText="true">
-                                 <font>
-                                    <Font name="Bodoni MT Bold Italic" size="31.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
+                        </Text>
                      </children>
-                  </AnchorPane>
+                  </Pane>
+                  <Button fx:id="cadastro" mnemonicParsing="false" onAction="#entrarCadastro" prefHeight="59.0" prefWidth="133.0" stylesheets="@css/style.css" text="Cadastro">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Lucida Fax Regular" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="registros" mnemonicParsing="false" onAction="#entrarRegistros" prefHeight="59.0" prefWidth="133.0" stylesheets="@css/style.css" text="Registros">
+                     <font>
+                        <Font name="Lucida Fax Regular" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
-            </StackPane>
-            <AnchorPane maxWidth="170.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="170.0" style="-fx-background-color: #15be99;">
                <effect>
                   <DropShadow />
                </effect>
-               <children>
-                  <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="170.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <top>
-                        <AnchorPane prefHeight="137.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label alignment="CENTER" layoutX="7.0" layoutY="27.0" prefHeight="84.0" prefWidth="170.0" text="Calcule Seu IMC" textAlignment="CENTER" wrapText="true">
-                                 <font>
-                                    <Font name="Bodoni MT Bold Italic" size="31.0" />
-                                 </font>
-                              </Label>
-                           </children></AnchorPane>
-                     </top>
-                     <center>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <GridPane prefHeight="415.0" prefWidth="240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <GridPane layoutX="-18.0" layoutY="-5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="170.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="-5.0">
-                                            <columnConstraints>
-                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            </columnConstraints>
-                                            <rowConstraints>
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                            </rowConstraints>
-                                             <children>
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                   <children>
-                                                      <Button alignment="CENTER" layoutY="-7.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="170.0" stylesheets="@css/style.css" text="Cadastro" wrapText="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0">
-                                                         <font>
-                                                            <Font name="Corbel Italic" size="20.0" />
-                                                         </font>
-                                                      </Button>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                                                   <children>
-                                                      <Button alignment="CENTER" layoutX="6.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="170.0" stylesheets="@css/style.css" text="Registros" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <font>
-                                                            <Font name="Corbel Italic" size="20.0" />
-                                                         </font>
-                                                      </Button>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
-                                                   <children>
-                                                      <Label alignment="CENTER" layoutY="-1.0" prefHeight="84.0" prefWidth="170.0" text="Feito por: Leonardo Gazola" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <font>
-                                                            <Font name="Bodoni MT Bold Italic" size="12.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                          </GridPane>
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </GridPane>
-                           </children>
-                        </AnchorPane>
-                     </center>
-                  </BorderPane>
-               </children>
-            </AnchorPane>
-         </children>
-      </GridPane>
+            </VBox>
+         </left>
+      </BorderPane>
    </children>
 </AnchorPane>
