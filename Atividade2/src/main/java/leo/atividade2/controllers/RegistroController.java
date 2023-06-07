@@ -57,7 +57,7 @@ public class RegistroController implements Initializable {
             ConectorH2 conH2 = new ConectorH2();
             Connection con = conH2.fileconnection();
 
-            String sql = "SELECT * FROM FLUXO";
+            String sql = "SELECT * FROM PESSOAS";
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
 
