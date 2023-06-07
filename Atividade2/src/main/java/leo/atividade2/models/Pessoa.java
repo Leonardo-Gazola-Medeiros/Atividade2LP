@@ -1,7 +1,5 @@
 package leo.atividade2.models;
 
-import javafx.collections.ObservableList;
-
 public class Pessoa {
     private String nome;
     private String cpf;
@@ -11,7 +9,7 @@ public class Pessoa {
     private float altura;
 
 
-    public Pessoa(String nome, String cpf, int idade, String nasc, float peso, float altura) {
+    public Pessoa(String nome, String cpf, int idade, String nasc, float peso, float altura, float imc) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
