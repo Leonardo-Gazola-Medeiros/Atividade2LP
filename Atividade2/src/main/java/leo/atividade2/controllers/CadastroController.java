@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import leo.atividade2.models.ConectorMySQL;
+import leo.atividade2.models.Pessoa;
 
 
 import java.net.URL;
@@ -45,8 +46,27 @@ public class CadastroController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resBund) {
-        ConectorMySQL conectorMySQL = new ConectorMySQL();
-        conectorMySQL.Conectar();
+
+
+
+        try {
+            ConectorMySQL conectorMySQL = new ConectorMySQL();
+            Connection con = conectorMySQL.Conectar();
+
+            String sql = "select * from pessoa";
+
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+
+                listaDeRegistros.add(
+                        resultSet.getString("nome")
+                );
+            }
+        }catch (SQLException e){
+
+            }
 
         selecionarRegistro.setItems(listaDeRegistros);
 
@@ -54,6 +74,66 @@ public class CadastroController implements Initializable {
 
     }
 
+    @FXML
+    public void selectRegistro() {
+
+        try {
+            ConectorMySQL conectorMySQL = new ConectorMySQL();
+            Connection con = conectorMySQL.Conectar();
+
+            String sql = "select * from pessoa where nome = '" +  String.valueOf(selecionarRegistro.getValue()) + "'";
+
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+
+
+                //SÓ PRA VER NO CONSOLE
+                System.out.println(resultSet.getString("nome"));
+                System.out.println(resultSet.getString("cpf"));
+                System.out.println(resultSet.getString("idade"));
+                System.out.println(resultSet.getString("nasc"));
+                System.out.println(resultSet.getDouble("altura"));
+                System.out.println(resultSet.getDouble("peso"));
+                System.out.println(resultSet.getDouble("imc"));
+
+
+
+                campoNome.setText(resultSet.getString("nome"));
+                campoCPF.setText(resultSet.getString("cpf"));
+                campoNasc.setText(resultSet.getString("nasc"));
+                campoIdade.setText(resultSet.getString("idade"));
+                campoPeso.setText(String.valueOf(resultSet.getDouble("peso")));
+                campoAltura.setText(String.valueOf(resultSet.getDouble("altura")));
+                campoIMC.setText(String.valueOf(resultSet.getDouble("imc")));
+            }
+
+
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void updateCadastro(){
+
+        try {
+            ConectorMySQL conectorMySQL = new ConectorMySQL();
+            Connection con = conectorMySQL.Conectar();
+
+           String sql =  "SET `nome` = ?,`cpf` = ?,`nasc` = ?,`idade` = ?,`peso` = ?,`altura` = ?,`imc` = ? WHERE `id` = (SELECT id FROM tarefas WHERE nome = " + selecionarRegistro.getValue();
+
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 
 
 
