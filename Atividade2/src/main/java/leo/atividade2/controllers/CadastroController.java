@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class CadastroController implements Initializable {
@@ -46,6 +49,15 @@ public class CadastroController implements Initializable {
 
 
         selecionarRegistro.setItems(listaDeRegistros);
+
+
+    }
+
+
+
+
+    @FXML
+    public void addCadastro() {
 
 
     }

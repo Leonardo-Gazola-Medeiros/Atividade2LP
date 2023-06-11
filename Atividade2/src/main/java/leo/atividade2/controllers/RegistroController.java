@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import leo.atividade2.models.ConectorMySQL;
 import leo.atividade2.models.Pessoa;
 import java.net.URL;
 import java.sql.Connection;
@@ -37,6 +38,8 @@ public class RegistroController implements Initializable {
 
     ObservableList<Pessoa> listaRegistros = FXCollections.observableArrayList();
 
+    private Connection con;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
@@ -53,8 +56,9 @@ public class RegistroController implements Initializable {
 
 
         try{
-            ConectorH2 conH2 = new ConectorH2();
-            Connection con = DriverManager.getConnection("jdbc:h2:./test","sa","");
+            ConectorMySQL conector = new ConectorMySQL();
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bancoIMC","root","senha");
+            System.out.println("Conectado");
 
             String sql = "SELECT * FROM PESSOAS";
             Statement statement = con.createStatement();
@@ -76,6 +80,7 @@ public class RegistroController implements Initializable {
 
 
         }catch(Exception exception){
+            System.out.println("nao conectou");
 
         }
 
