@@ -60,6 +60,7 @@ public class CadastroController implements Initializable {
     public void addCadastro() {
 
 
+
     }
 
     @FXML

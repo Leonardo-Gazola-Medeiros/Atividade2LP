@@ -57,7 +57,7 @@ public class RegistroController implements Initializable {
 
         try{
             ConectorMySQL conector = new ConectorMySQL();
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bancoIMC","root","senha");
+            Connection con = conector.Conectar();
             System.out.println("Conectado");
 
             String sql = "SELECT * FROM PESSOAS";
