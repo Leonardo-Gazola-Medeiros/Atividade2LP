@@ -1,21 +1,42 @@
 package leo.atividade2.models;
 
 public class Pessoa {
+    private int id;
     private String nome;
     private String cpf;
     private int idade;
     private String nasc;
-    private float peso;
-    private float altura;
+    private double peso;
+    private double altura;
+    private double imc;
 
-
-    public Pessoa(String nome, String cpf, int idade, String nasc, float peso, float altura, float imc) {
+    public Pessoa(int id, String nome, String cpf, int idade, String nasc, double peso, double altura, double imc) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
         this.nasc = nasc;
         this.peso = peso;
         this.altura = altura;
+        this.imc = imc;
+    }
+
+    public Pessoa(String nome, String cpf, int idade, String nasc, double peso, double altura, double imc) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.idade = idade;
+        this.nasc = nasc;
+        this.peso = peso;
+        this.altura = altura;
+        this.imc = imc;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -50,21 +71,27 @@ public class Pessoa {
         this.nasc = nasc;
     }
 
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
 
-    public void setAltura(float altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
+    public double getImc() {
+        return imc;
+    }
 
+    public void setImc(double imc) {
+        this.imc = imc;
+    }
 }

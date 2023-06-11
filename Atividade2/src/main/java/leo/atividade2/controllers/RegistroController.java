@@ -8,11 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import leo.atividade2.models.ConectorH2;
 import leo.atividade2.models.Pessoa;
-
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -55,7 +54,7 @@ public class RegistroController implements Initializable {
 
         try{
             ConectorH2 conH2 = new ConectorH2();
-            Connection con = conH2.fileconnection();
+            Connection con = DriverManager.getConnection("jdbc:h2:./test","sa","");
 
             String sql = "SELECT * FROM PESSOAS";
             Statement statement = con.createStatement();
