@@ -172,7 +172,10 @@ public class CadastroController implements Initializable {
         double altura = Double.valueOf(campoAltura.getText());
         double imc = peso / (altura * altura);
 
-        campoIMC.setText(Double.toString(imc));
+        String indice = String.format("%.2f",imc);
+
+        campoIMC.setText(indice);
+
 
     }
 
