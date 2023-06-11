@@ -7,13 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-
+import leo.atividade2.models.ConectorMySQL;
 
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class CadastroController implements Initializable {
@@ -43,12 +41,15 @@ public class CadastroController implements Initializable {
 
     ObservableList<String> listaDeRegistros = FXCollections.observableArrayList();
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resBund) {
-
-
+        ConectorMySQL conectorMySQL = new ConectorMySQL();
+        conectorMySQL.Conectar();
 
         selecionarRegistro.setItems(listaDeRegistros);
+
 
 
     }
@@ -58,6 +59,28 @@ public class CadastroController implements Initializable {
 
     @FXML
     public void addCadastro() {
+        ConectorMySQL conectorMySQL = new ConectorMySQL();
+        Connection con = conectorMySQL.Conectar();
+
+        String sql = ("insert into pessoa(nome,cpf,idade,nasc,peso,altura,imc) values(?,?,?,?,?,?,?)");
+        try {
+
+
+           PreparedStatement prepare = con.prepareStatement(sql);
+           prepare.setString(1,campoNome.getText());
+           prepare.setString(2,campoCPF.getText());
+           prepare.setString(3,campoIdade.getText());
+           prepare.setString(4,campoNasc.getText());
+           prepare.setDouble(5,Double.valueOf(campoPeso.getText()));
+           prepare.setDouble(6,Double.valueOf(campoAltura.getText()));
+           prepare.setDouble(7,Double.valueOf(campoIMC.getText()));
+           prepare.executeUpdate();
+            System.out.println("Envio bem Sucedido!!!!11!11!!!!!!1");
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
 
 
 

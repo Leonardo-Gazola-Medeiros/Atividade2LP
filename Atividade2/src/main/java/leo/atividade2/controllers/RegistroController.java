@@ -16,6 +16,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import leo.atividade2.models.*;
 
 public class RegistroController implements Initializable {
 
@@ -38,51 +39,48 @@ public class RegistroController implements Initializable {
 
     ObservableList<Pessoa> listaRegistros = FXCollections.observableArrayList();
 
-    private Connection con;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
 
-        nome.setCellValueFactory(new PropertyValueFactory<>("NOME"));
-        cpf.setCellValueFactory(new PropertyValueFactory<>("CPF"));
-        idade.setCellValueFactory(new PropertyValueFactory<>("IDADE"));
-        nasc.setCellValueFactory(new PropertyValueFactory<>("NASC"));
-        peso.setCellValueFactory(new PropertyValueFactory<>("PESO"));
-        altura.setCellValueFactory(new PropertyValueFactory<>("ALTURA"));
-        imc.setCellValueFactory(new PropertyValueFactory<>("IMC"));
+
+        nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        idade.setCellValueFactory(new PropertyValueFactory<>("idade"));
+        nasc.setCellValueFactory(new PropertyValueFactory<>("nasc"));
+        peso.setCellValueFactory(new PropertyValueFactory<>("peso"));
+        altura.setCellValueFactory(new PropertyValueFactory<>("altura"));
+        imc.setCellValueFactory(new PropertyValueFactory<>("imc"));
 
 
+        try {
+            ConectorMySQL conectorMySQL = new ConectorMySQL();
+            Connection con = conectorMySQL.Conectar();
 
-
-        try{
-            ConectorMySQL conector = new ConectorMySQL();
-            Connection con = conector.Conectar();
-            System.out.println("Conectado");
-
-            String sql = "SELECT * FROM PESSOAS";
+            String sql = "select * from pessoa";
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
 
             while(resultSet.next()) {
 
                 listaRegistros.add(new Pessoa(
-                        resultSet.getString("NOME"),
-                        resultSet.getString("CPF"),
-                        resultSet.getInt("IDADE"),
-                        resultSet.getString("NASC"),
-                        resultSet.getFloat("PESO"),
-                        resultSet.getFloat("ALTURA"),
-                        resultSet.getFloat("IMC")
+                        resultSet.getString("nome"),
+                        resultSet.getString("cpf"),
+                        resultSet.getString("idade"),
+                        resultSet.getString("nasc"),
+                        resultSet.getDouble("peso"),
+                        resultSet.getDouble("altura"),
+                        resultSet.getDouble("imc")
                 ));
-            }
+            }}catch(Exception exception){
+
+        }
             tabelaRegistros.setItems(listaRegistros);
 
 
-        }catch(Exception exception){
-            System.out.println("nao conectou");
 
-        }
+
 
     }
 

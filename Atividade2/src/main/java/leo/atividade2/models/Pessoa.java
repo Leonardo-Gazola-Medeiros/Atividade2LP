@@ -4,24 +4,14 @@ public class Pessoa {
     private int id;
     private String nome;
     private String cpf;
-    private int idade;
+    private String idade;
     private String nasc;
     private double peso;
     private double altura;
     private double imc;
 
-    public Pessoa(int id, String nome, String cpf, int idade, String nasc, double peso, double altura, double imc) {
-        this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.idade = idade;
-        this.nasc = nasc;
-        this.peso = peso;
-        this.altura = altura;
-        this.imc = imc;
-    }
 
-    public Pessoa(String nome, String cpf, int idade, String nasc, double peso, double altura, double imc) {
+    public Pessoa(String nome, String cpf, String idade, String nasc, double peso, double altura, double imc) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
@@ -55,11 +45,11 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
