@@ -1,0 +1,10 @@
+CREATE TABLE `pessoa` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `nome` varchar(200),
+  `cpf` varchar(20),
+  `nasc` varchar(20),
+  `idade` varchar(3),
+  `peso` double NOT NULL,
+  `altura` double NOT NULL,
+  `imc` double NOT NULL
+);
