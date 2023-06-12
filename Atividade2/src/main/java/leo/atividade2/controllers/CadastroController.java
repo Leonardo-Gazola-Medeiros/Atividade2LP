@@ -125,6 +125,15 @@ public class CadastroController implements Initializable {
         ConectorMySQL conectorMySQL = new ConectorMySQL();
         Connection con = conectorMySQL.Conectar();
 
+        double peso = Double.valueOf(campoPeso.getText());
+        double altura = Double.valueOf(campoAltura.getText());
+        double imc = peso / (altura * altura);
+
+        String indice = String.format("%.2f",imc).replaceAll(",",".");
+
+
+        campoIMC.setText(indice);
+
         String sql = "UPDATE pessoa SET nome = ?, cpf = ?, idade = ?, nasc = ?, peso = ? , altura = ? , imc = ? WHERE nome = ?";
 
         try {
