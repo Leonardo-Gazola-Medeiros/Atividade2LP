@@ -125,13 +125,41 @@ public class CadastroController implements Initializable {
         ConectorMySQL conectorMySQL = new ConectorMySQL();
         Connection con = conectorMySQL.Conectar();
 
+        String sql = "UPDATE pessoa SET nome = ?, cpf = ?, idade = ?, nasc = ?, peso = ? , altura = ? , imc = ? WHERE nome = ?";
 
-
+        try {
+            PreparedStatement prepare = con.prepareStatement(sql);
+            prepare.setString(1,campoNome.getText());
+            prepare.setString(2,campoCPF.getText());
+            prepare.setString(3,campoIdade.getText());
+            prepare.setString(4,campoNasc.getText());
+            prepare.setDouble(5,Double.valueOf(campoPeso.getText()));
+            prepare.setDouble(6,Double.valueOf(campoAltura.getText()));
+            prepare.setDouble(7,Double.valueOf(campoIMC.getText()));
+            prepare.setString(8,String.valueOf(selecionarRegistro.getValue()));
+            prepare.executeUpdate();
+            System.out.println("Envio bem Sucedido!!!!11!11!!!!!!1");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     @FXML
     public void deletar() {
+        ConectorMySQL conectorMySQL = new ConectorMySQL();
+        Connection con = conectorMySQL.Conectar();
 
+        String sql = "DELETE FROM pessoa WHERE nome = ?";
+
+        try {
+            PreparedStatement prepare = con.prepareStatement(sql);
+            prepare.setString(1,campoNome.getText());
+
+            prepare.executeUpdate();
+            System.out.println("Envio bem Sucedido!!!!11!11!!!!!!1");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
 
@@ -140,6 +168,15 @@ public class CadastroController implements Initializable {
     public void addCadastro() {
         ConectorMySQL conectorMySQL = new ConectorMySQL();
         Connection con = conectorMySQL.Conectar();
+
+        double peso = Double.valueOf(campoPeso.getText());
+        double altura = Double.valueOf(campoAltura.getText());
+        double imc = peso / (altura * altura);
+
+        String indice = String.format("%.2f",imc).replaceAll(",",".");
+
+
+        campoIMC.setText(indice);
 
         String sql = ("insert into pessoa(nome,cpf,idade,nasc,peso,altura,imc) values(?,?,?,?,?,?,?)");
         try {
