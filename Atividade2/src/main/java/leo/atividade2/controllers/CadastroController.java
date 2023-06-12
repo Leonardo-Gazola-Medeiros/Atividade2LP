@@ -119,20 +119,19 @@ public class CadastroController implements Initializable {
     }
 
     @FXML
-    public void updateCadastro(){
+    public void update() {
 
-        try {
-            ConectorMySQL conectorMySQL = new ConectorMySQL();
-            Connection con = conectorMySQL.Conectar();
+        System.out.println("teste");
+        ConectorMySQL conectorMySQL = new ConectorMySQL();
+        Connection con = conectorMySQL.Conectar();
 
-           String sql =  "SET `nome` = ?,`cpf` = ?,`nasc` = ?,`idade` = ?,`peso` = ?,`altura` = ?,`imc` = ? WHERE `id` = (SELECT id FROM tarefas WHERE nome = " + selecionarRegistro.getValue();
 
-            Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
 
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+    }
+
+    @FXML
+    public void deletar() {
+
     }
 
 
@@ -160,11 +159,8 @@ public class CadastroController implements Initializable {
         }catch (Exception ex){
             ex.printStackTrace();
         }
-
-
-
-
     }
+
 
     @FXML
     public void calcularIMC() {
@@ -172,7 +168,8 @@ public class CadastroController implements Initializable {
         double altura = Double.valueOf(campoAltura.getText());
         double imc = peso / (altura * altura);
 
-        String indice = String.format("%.2f",imc);
+        String indice = String.format("%.2f",imc).replaceAll(",",".");
+
 
         campoIMC.setText(indice);
 
